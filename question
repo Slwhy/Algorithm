@@ -1,0 +1,8 @@
+1,ArrayList如何遍历
+    for each循环
+2，hashmap内的值如何进行修改
+    HashMap<String,Integer> map = new HashMap<String,Integer>();
+    Integer value = map.get(String.valueOf(key));
+    value++;
+    map.put(String.valueOf(key),value);
+3,sort方法如何使用见 最小的K个数
