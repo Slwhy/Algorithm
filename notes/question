@@ -6,3 +6,8 @@
     value++;
     map.put(String.valueOf(key),value);
 3,sort方法如何使用见 最小的K个数
+
+4.java 中字符串相关函数
+Character.isDigit(char)     判断是否是数字
+Character.isLetter(char)    判断是否是字母
+Character.toLowerCase(char) 字符大写转小写
