@@ -1,6 +1,5 @@
 package leetcode;
 
-import java.lang.reflect.Array;
 
 /**
  * @author: slwhy
