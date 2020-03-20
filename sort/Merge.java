@@ -47,7 +47,9 @@ public class Merge {
 
     public static void main(String[] args) {
         int[] array = new int[]{8, 2, 5, 3, 9, 6, 7, 1};
-        merge(array);
+        Select select = new Select();
+        select.selectSort(array);
+//        merge(array);
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
         }
