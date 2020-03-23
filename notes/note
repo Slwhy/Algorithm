@@ -22,3 +22,7 @@
 20, 扑克牌顺子
 21, 字符流中第一个不重复的数字
 22, 矩阵中的路径
+
+primary     leetcode 初级算法卡片里面的题目,共计 49题
+medium      leetcode 中级算法卡片里面的题目,共计 45题
+random      leetcode 随机刷的题
