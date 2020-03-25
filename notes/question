@@ -11,3 +11,6 @@
 Character.isDigit(char)     判断是否是数字
 Character.isLetter(char)    判断是否是字母
 Character.toLowerCase(char) 字符大写转小写
+
+5.一个char[] (字符数组),调用 toString 函数返回的不是字符数组对应的字符串,而是对象的名称
+
