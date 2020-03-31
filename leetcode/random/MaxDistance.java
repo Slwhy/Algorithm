@@ -1,6 +1,7 @@
 package leetcode.random;
 
-import java.util.Arrays;
+import java.util.ArrayDeque;
+import java.util.Queue;
 
 /**
  * @author: slwhy
@@ -9,42 +10,50 @@ import java.util.Arrays;
  */
 public class MaxDistance {
     public int maxDistance(int[][] grid) {
-        int dist = 0;
-        int curr;
-        int[][] tmp = new int[grid.length][grid.length];
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid.length; j++) {
-                if (grid[i][j] == 0) {
-                    for (int row=0;row<grid.length;row++){
-                        for (int column =0;column<grid.length;column++){
-                            tmp[row][column]=grid[row][column];
-                        }
-                    }
-                    curr = maxDistanceCore(tmp, i, j);
-                    dist = Math.max(curr, dist);
+        /**
+         * @Author slwhy
+         * @Date 2020/3/31
+         * @Param [grid]
+         * @return int
+         * @Description leetcode上的解法
+         **/
+        int[] dx = {0, 0, 1, -1};
+        int[] dy = {1, -1, 0, 0};
+
+        Queue<int[]> queue = new ArrayDeque<>();
+        int m = grid.length, n = grid[0].length;
+        // 先把所有的陆地都入队。
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    queue.offer(new int[] {i, j});
                 }
             }
         }
-        return dist == 0 ? -1 : dist;
+        boolean hasOcean = false;
+        int[] point = null;
+        while (!queue.isEmpty()) {
+            point = queue.poll();
+            int x = point[0], y = point[1];
+            // 取出队列的元素，将其四周的海洋入队。
+            for (int i = 0; i < 4; i++) {
+                int newX = x + dx[i];
+                int newY = y + dy[i];
+                if (newX < 0 || newX >= m || newY < 0 || newY >= n || grid[newX][newY] != 0) {
+                    continue;
+                }
+                grid[newX][newY] = grid[x][y] + 1; // 这里我直接修改了原数组，因此就不需要额外的数组来标志是否访问
+                hasOcean = true;
+                queue.offer(new int[] {newX, newY});
+            }
+        }
+        if (point == null || !hasOcean) {
+            return -1;
+        }
+        return grid[point[0]][point[1]] - 1;
     }
 
-    public int maxDistanceCore(int[][] grid, int row, int column) {
-        if (row >= 0 && row < grid.length && column >= 0 && column < grid.length && grid[row][column] == 0) {
-            grid[row][column] = 2;
-            int tmp = Integer.MAX_VALUE;
-            int left = maxDistanceCore(grid, row, column - 1);
-            int right = maxDistanceCore(grid, row, column + 1);
-            int above = maxDistanceCore(grid, row - 1, column);
-            int follow = maxDistanceCore(grid, row + 1, column);
-            tmp = left >= 0 && left < tmp ? left : tmp;
-            tmp = right >= 0 && right < tmp ? right : tmp;
-            tmp = above >= 0 && above < tmp ? above : tmp;
-            tmp = follow >= 0 && follow < tmp ? follow : tmp;
-            return tmp == Integer.MAX_VALUE ? -1 : tmp+1;
-        } else if (row >= 0 && row < grid.length && column >= 0 && column < grid.length && grid[row][column] == 1)
-            return 0;
-        else return -1;
-    }
+
 
     public static void main(String[] args) {
         MaxDistance dis = new MaxDistance();
