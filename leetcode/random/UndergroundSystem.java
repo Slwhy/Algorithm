@@ -23,6 +23,13 @@ class Trip {
 }
 
 public class UndergroundSystem {
+    /**
+     * @Author slwhy
+     * @Date 2020/3/31
+     * @Param
+     * @return
+     * @Description 之前有一个问题，当乘客出站后，要更新  inStation 集合，避免该乘客下次进站时无法更新数据
+     **/
 
     Set<Integer> inStation = new HashSet<>();
 

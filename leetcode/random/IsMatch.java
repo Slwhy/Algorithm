@@ -7,20 +7,17 @@ package leetcode.random;
  */
 public class IsMatch {
     public boolean isMatch(String s, String p) {
+        /**
+         * @Author slwhy
+         * @Date 2020/3/31
+         * @Param [s, p]
+         * @return boolean
+         * @Description 此题不会
+         **/
         char[] charS = s.toCharArray();
         char[] charP = p.toCharArray();
 
-        return isMatchCore(charS, charP, 0, 0);
+        return false;
     }
 
-    public boolean isMatchCore(char[] s, char[] p, int indexS, int indexP) {
-        if (indexP == p.length && indexS == s.length) return true;
-        if (indexS < s.length && indexP < p.length) {
-            if (s[indexS] == p[indexP] || p[indexP] == '.') return isMatchCore(s, p, indexS + 1, indexP + 1);
-            else if (p[indexP] == '*')
-                return isMatchCore(s, p, indexS, indexP - 1) || isMatchCore(s, p, indexS, indexP + 1);
-            else if (indexP + 1 < p.length && p[indexP + 1] == '*') return isMatchCore(s, p, indexS, indexP + 1);
-            return false;
-        } else return false;
-    }
 }
