@@ -10,41 +10,35 @@ public class Exist {
     int[][] directions = new int[][]{{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
 
     public boolean exist(char[][] board, String word) {
-
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j] == word.charAt(0)) {
-                    char[][] copyBoard = new char[board.length][board[0].length];
-                    for (int m = 0; m < board.length; m++) {
-                        for (int n = 0; n < board[0].length; n++) {
-                            copyBoard[m][n] = board[m][n];
-                        }
-                    }
-                    boolean res = dfs(copyBoard, i, j, new StringBuilder(), word);
-                    if (res) return res;
-                }
+                boolean res = dfs(board, i, j, 0, word);
+                if (res) return res;
             }
         }
         return false;
     }
 
-    public boolean dfs(char[][] board, int row, int column, StringBuilder path, String word) {
-        if (row >= 0 && row < board.length && column >= 0 && column < board[row].length && board[row][column] != '0') {
-            path.append(board[row][column]);
-            board[row][column] = '0';
-            if (path.length() < word.length()) {
-                boolean curr = false;
+    public boolean dfs(char[][] board, int row, int column, int index, String word) {
+        if (row >= 0 && row < board.length && column >= 0 && column < board[row].length && index < word.length() && board[row][column] == word.charAt(index)) {
+            if (index == word.length() - 1) return true;
+            else {
+                boolean flag = false;
+                char tmp = board[row][column];
+                board[row][column] = '0';
                 for (int i = 0; i < directions.length; i++) {
-                    curr = curr || dfs(board, row + directions[i][0], column + directions[i][1], new StringBuilder(path), word);
+                    flag = flag || dfs(board, row + directions[i][0], column + directions[i][1], index + 1, word);
                 }
-                return curr;
-            } else return path.toString().equals(word);
+                board[row][column] = tmp;
+                return flag;
+            }
         } else return false;
     }
 
     public static void main(String[] args) {
-        StringBuilder test = new StringBuilder();
-        test.append("abcd");
-        System.out.println(test.delete(test.length() - 1, test.length()));
+        Exist exist = new Exist();
+//        System.out.println(exist.exist(new char[][]{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "ABCESEEEFS"));
+        System.out.println(exist.exist(new char[][]{{'A', 'B', 'C', 'E'}, {'S', 'F', 'E', 'S'}, {'A', 'D', 'E', 'E'}}, "ABCESEEEFS"));
+
     }
 }
