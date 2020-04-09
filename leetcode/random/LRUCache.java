@@ -1,6 +1,5 @@
 package leetcode.random;
 
-
 import java.util.HashMap;
 
 
