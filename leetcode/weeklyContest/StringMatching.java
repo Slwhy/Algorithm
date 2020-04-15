@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author: slwhy
  * @date: 2020/4/12
- * @description: 5380. 数组中的字符串匹配
+ * @description: 1408. 数组中的字符串匹配
  */
 public class StringMatching {
     public List<String> stringMatching(String[] words) {

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * @author: slwhy
  * @date: 2020/4/12
- * @description: //todo
+ * @description: 1409. 查询带键的排列
  */
 public class ProcessQueries {
     public int[] processQueries(int[] queries, int m) {
