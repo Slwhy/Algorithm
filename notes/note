@@ -60,11 +60,8 @@ random      leetcode 随机刷的题
 3.碰到回溯，剪枝的题目，需要先将需要走的路径画出来，这样有助于思考，如题39，40
 4.区间求差问题，可以转换为连续子数组求和问题，参考如下链接
 https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/121-mai-mai-gu-piao-de-zui-jia-shi-ji-dp-7-xing-ji/
-
-
-
-
-
+5.求x的m次方,快速幂,如 50. Pow(x, n)
+6.求x的算术平方根,牛顿法,如 69. x 的平方根
 
 
 17. 电话号码的字母组合
