@@ -5,12 +5,49 @@ import java.util.Stack;
 /**
  * @author: slwhy
  * @date: 2019/11/11
- * @description: num 25
+ * @description: 25. K 个一组翻转链表
  */
 public class ReverseKGroup {
     public static ListNode res;
 
     public static ListNode reverseKGroup(ListNode head, int k) {
+        if (k < 2) return head;
+        ListNode countK, tmp, p, pre, node, last, root;
+        root = new ListNode(0);
+        root.next = head;
+        last = root;
+        int count;
+        countK = head;
+        while (countK != null) {
+            count = 1;
+            p = countK;
+            pre = countK.next;
+            while (countK != null && count < k) {
+                countK = countK.next;
+                count++;
+            }
+            if (count != k || countK == null) {
+                last.next = p;
+                break;
+            }
+            node = countK;
+            countK = countK.next;
+            last.next = node;
+            last = p;
+            last.next = null;
+            while (count > 1) {
+                count--;
+                tmp = pre;
+                pre = pre.next;
+                tmp.next = p;
+                p = tmp;
+            }
+
+        }
+        return root.next;
+    }
+
+    public static ListNode reverseKGroup2(ListNode head, int k) {
         // 倒置用递归，剩余部分要保持源有顺序，所以需要先取出来
         // 代码有待整理，写的很乱，这题做的很不容易
         if (head == null || k < 2) return head;
@@ -95,7 +132,7 @@ public class ReverseKGroup {
         node2.next = node3;
         node3.next = node4;
         node4.next = node5;
-        reverseKGroup(node1, 3);
+        reverseKGroup(node1, 2);
     }
 
 }
