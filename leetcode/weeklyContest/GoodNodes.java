@@ -3,7 +3,7 @@ package leetcode.weeklyContest;
 /**
  * @author: slwhy
  * @date: 2020/5/16
- * @description: //todo
+ * @description: 5398. 统计二叉树中好节点的数目
  */
 
 class TreeNode {

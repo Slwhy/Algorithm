@@ -3,7 +3,7 @@ package leetcode.weeklyContest;
 /**
  * @author: slwhy
  * @date: 2020/5/16
- * @description: //todo
+ * @description: 5396. 连续字符
  */
 public class MaxPower {
     public int maxPower(String s) {
