@@ -9,7 +9,6 @@ import java.util.*;
  */
 public class CanMeasureWater {
 
-
     public boolean canMeasureWater(int x, int y, int z) {
         /**
          * @Author slwhy
@@ -60,6 +59,6 @@ public class CanMeasureWater {
 
     public static void main(String[] args) {
         CanMeasureWater can = new CanMeasureWater();
-        System.out.println(can.canMeasureWater(3, 5, 4));
+        System.out.println(can.canMeasureWater(0, 0, 1));
     }
 }
