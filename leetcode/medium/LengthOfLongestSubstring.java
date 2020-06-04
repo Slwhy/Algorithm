@@ -17,6 +17,31 @@ public class LengthOfLongestSubstring {
     public int lengthOfLongestSubstring(String s) {
         /**
          * @Author slwhy
+         * @Date 2020/6/3
+         * @Param [s]
+         * @return int
+         * @Description dp解
+         **/
+        if (s.length() < 2) return s.length();
+        char[] chars = s.toCharArray();
+        int[] dp = new int[s.length()];
+        dp[0] = 1;
+        int max = 0;
+        for (int i = 1; i < dp.length; i++) {
+            int j = i - 1;
+            for (; i - j <= dp[i - 1]; j--) {
+                if (chars[i] == chars[j]) break;
+            }
+            if (i - j > dp[i - 1]) dp[i] = dp[i - 1] + 1;
+            else dp[i] = i - j;
+            max = Math.max(max, dp[i]);
+        }
+        return max;
+    }
+
+    public int lengthOfLongestSubstring2(String s) {
+        /**
+         * @Author slwhy
          * @Date 2020/3/25
          * @Param [s]
          * @return int
