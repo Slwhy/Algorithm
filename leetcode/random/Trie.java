@@ -56,7 +56,6 @@ public class Trie {
         TrieNode curr = root;
         for (int i = 0; i < tmp.length; i++) {
             if (curr.children[tmp[i] - 'a'] != null) curr = curr.children[tmp[i] - 'a'];
-            if (i==tmp.length-1) return curr.appear;
             else return false;
         }
         return curr.appear;
