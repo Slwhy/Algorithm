@@ -26,7 +26,7 @@ int searchInsert1(vector<int> &nums, int target) {
     return searchInsertCore(nums, target, 0, nums.size() - 1);
 }
 
-int searchInsert(vector<int> &nums, int target) {
+int searchInsert2(vector<int> &nums, int target) {
     /*
      * 循环版二分搜索
      */
@@ -42,10 +42,20 @@ int searchInsert(vector<int> &nums, int target) {
     else return left + 1;
 }
 
-
-int main() {
-    vector<int> nums = {1, 3, 5, 6};
-    int res = searchInsert(nums, 7);
-    cout << res << endl;
-    return 0;
+int searchInsert(vector<int> &nums, int target) {
+    /*
+     * 暴力
+     */
+    for (int i = 0; i < nums.size(); ++i) {
+        if (nums[i] >= target) return i;
+    }
+    return nums.size();
 }
+
+
+//int main() {
+//    vector<int> nums = {1, 3, 5, 6};
+//    int res = searchInsert(nums, 7);
+//    cout << res << endl;
+//    return 0;
+//}
