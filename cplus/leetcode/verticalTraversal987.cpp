@@ -72,29 +72,29 @@ vector<vector<int>> verticalTraversal(TreeNode *root) {
     cout << "for third" << endl;
     return res;
 }
-
-int main() {
-
-    TreeNode node1(3);
-    TreeNode node2(9);
-    TreeNode node3(20);
-    TreeNode node4(15);
-    TreeNode node5(7);
-    node1.left = &node2;
-    node1.right = &node3;
-    node3.left = &node4;
-    node3.right = &node5;
-    cout << "test" << endl;
-    vector<vector<int>> res = verticalTraversal(&node1);
-    cout << "func end" << endl;
-    for (int i = 0; i < res.size(); ++i) {
-        cout << "------" << endl;
-        for (int j = 0; j < res[i].size(); ++j) {
-            cout << res[i][j] << "\t";
-        }
-        cout << endl;
-    }
-    cout << "end" << endl;
-    return 1;
-}
+//
+//int main() {
+//
+//    TreeNode node1(3);
+//    TreeNode node2(9);
+//    TreeNode node3(20);
+//    TreeNode node4(15);
+//    TreeNode node5(7);
+//    node1.left = &node2;
+//    node1.right = &node3;
+//    node3.left = &node4;
+//    node3.right = &node5;
+//    cout << "test" << endl;
+//    vector<vector<int>> res = verticalTraversal(&node1);
+//    cout << "func end" << endl;
+//    for (int i = 0; i < res.size(); ++i) {
+//        cout << "------" << endl;
+//        for (int j = 0; j < res[i].size(); ++j) {
+//            cout << res[i][j] << "\t";
+//        }
+//        cout << endl;
+//    }
+//    cout << "end" << endl;
+//    return 1;
+//}
 
