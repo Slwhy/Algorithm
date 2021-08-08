@@ -52,7 +52,7 @@ int searchInsert(vector<int> &nums, int target) {
     return nums.size();
 }
 
-
+//
 //int main() {
 //    vector<int> nums = {1, 3, 5, 6};
 //    int res = searchInsert(nums, 7);
