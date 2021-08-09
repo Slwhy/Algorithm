@@ -8,21 +8,18 @@ using namespace std;
 
 vector<int> sortedSquares1(vector<int> &nums) {
     /*
-     * 双指针法
+     * 双指针法,平方之后，最小值不知道在哪，但最大值一定在左右两端
      */
     vector<int> res(nums.size());
-    int tmp = 0, left = 0, right = nums.size() - 1;
-    for (int i = 0; i < nums.size(); ++i) {
-        res[i] = nums[i] * nums[i];
-    }
-    while (left < right) {
-        if (nums[left] > right) {
-            tmp = nums[left];
-            nums[left] = nums[right];
-            nums[right] = tmp;
+    int index = nums.size() - 1, left = 0, right = nums.size() - 1;
+    while (left <= right) {
+        if (nums[left] * nums[left] > nums[right] * nums[right]) {
+            res[index++] = nums[left] * nums[left];
+            left++;
+        } else {
+            res[index--] = nums[right] * nums[right];
+            right--;
         }
-        right--;
-
     }
     return res;
 }
