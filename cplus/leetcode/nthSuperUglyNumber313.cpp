@@ -3,6 +3,8 @@
 // Desc:313. 超级丑数
 //
 #include "vector"
+#include "unordered_set"
+#include "queue"
 
 using namespace std;
 
@@ -15,7 +17,7 @@ int nthSuperUglyNumber(int n, vector<int> &primes) {
     for (int i = 0; i < n; i++) {
         long curr = heap.top();
         heap.pop();
-        ugly = (int)curr;
+        ugly = (int) curr;
         for (int prime : primes) {
             long next = curr * prime;
             if (seen.insert(next).second) {
