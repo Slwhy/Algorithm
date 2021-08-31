@@ -8,7 +8,7 @@
 #include "unordered_map"
 
 using namespace std;
-int numberOfArithmeticSlices(vector<int>& nums) {
+int numberOfArithmeticSlices1(vector<int>& nums) {
     int ans = 0;
     int n = nums.size();
     vector<unordered_map<long long, int>> f(n);
