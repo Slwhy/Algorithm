@@ -31,7 +31,7 @@ int tribonacci(int n) {
     else return tribonacci(n - 1) + tribonacci(n - 2) + tribonacci(n - 3);
 }
 
-int main() {
-    cout << "hello world" << endl;
-    return 0;
-}
+//int main() {
+//    cout << "hello world" << endl;
+//    return 0;
+//}
