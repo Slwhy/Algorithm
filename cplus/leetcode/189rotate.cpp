@@ -11,12 +11,12 @@ void rotate2(vector<int> &nums, int k) {
     vector<int> rightVec(k);
     int len = nums.size();
     for (int i = 0; i < k; ++i) {
-        rightVec[k-i-1] = nums[len-i-1];
+        rightVec[k - i - 1] = nums[(len - i - 1 + len) % len];
     }
-    for (int i = len-k-1; i >=0 ; --i) {
-        nums[(i+k)%len] = nums[i];
+    for (int i = len - k - 1; i >= 0; --i) {
+        nums[(i + k) % len] = nums[i];
     }
-    for (int i = 0; i < k; ++i) {
+    for (int i = 0; i < k & i < len; ++i) {
         nums[i] = rightVec[i];
     }
 }
