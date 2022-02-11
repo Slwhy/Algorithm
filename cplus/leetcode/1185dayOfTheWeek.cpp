@@ -23,7 +23,7 @@ string dayOfTheWeek(int day, int month, int year) {
     return weeks[(days - 1) % 7];
 }
 
-int main() {
-    cout << dayOfTheWeek(1, 1, 2100) << endl;
-}
+//int main() {
+//    cout << dayOfTheWeek(1, 1, 2100) << endl;
+//}
 
