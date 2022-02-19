@@ -7,7 +7,7 @@
 using namespace std;
 
 
-void bfs(vector<vector<int>> &mat) {
+void updateMatrixBfs(vector<vector<int>> &mat) {
     // 多源BFS
     vector<vector<int>> direction = {{1,  0},
                                      {-1, 0},
@@ -45,12 +45,12 @@ void bfs(vector<vector<int>> &mat) {
 }
 
 vector<vector<int>> updateMatrix(vector<vector<int>> &mat) {
-    bfs(mat);
+    updateMatrixBfs(mat);
     return mat;
 }
 
-int main(){
-    vector<vector<int>> mat = {{0,1,0},{0,1,0},{0,1,0},{0,1,0},{0,1,0}};
-    updateMatrix(mat);
-}
+//int main(){
+//    vector<vector<int>> mat = {{0,1,0},{0,1,0},{0,1,0},{0,1,0},{0,1,0}};
+//    updateMatrix(mat);
+//}
 
