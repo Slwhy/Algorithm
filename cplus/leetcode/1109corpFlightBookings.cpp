@@ -39,12 +39,3 @@ vector<int> corpFlightBookings1(vector<vector<int>> &bookings, int n) {
     }
     return res;
 }
-int main(){
-    vector<vector<int>> bookings={{1,2,10},{2,3,20},{2,5,25}};
-    cout<<"begin"<<endl;
-    vector<int> res = corpFlightBookings(bookings,5);
-    for (int i = 0; i < 5; ++i) {
-        cout<<res[i]<< " ";
-    }
-    return 0;
-}

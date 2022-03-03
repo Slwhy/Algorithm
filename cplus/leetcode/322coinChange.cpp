@@ -19,22 +19,22 @@ int coinChange(vector<int> &coins, int amount) {
     return dp[amount] > amount ? -1 : dp[amount];
 }
 
-int res = -1;
+int result322 = -1;
 
 void coinChangeCore(vector<int> &coins, int amount, int index, int num) {
     // 贪心+回溯剪枝
-    if ((amount > 0) && (res == -1 || res > num) && index >= 0) {
+    if ((amount > 0) && (result322 == -1 || result322 > num) && index >= 0) {
         int n = amount / coins[index];
         for (int i = n; i >= 0; --i) {
             coinChangeCore(coins, amount - i * coins[index], index - 1, num + i);
         }
     } else if (amount == 0) {
-        if (res == -1 || res > num) res = num;
+        if (result322 == -1 || result322 > num) result322 = num;
     }
 }
 
 int coinChange2(vector<int> &coins, int amount) {
     std::sort(coins.begin(), coins.end());
     coinChangeCore(coins, amount, coins.size() - 1, 0);
-    return res;
+    return result322;
 }

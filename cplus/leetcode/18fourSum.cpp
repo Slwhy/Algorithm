@@ -33,8 +33,3 @@ vector<vector<int>> fourSum(vector<int> &nums, int target) {
     }
     return resultFourSum;
 }
-
-int main(){
-    vector<int>tmp = {0};
-    vector<vector<int>> result = fourSum(tmp,0);
-}
