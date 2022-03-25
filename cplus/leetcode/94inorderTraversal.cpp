@@ -20,13 +20,13 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-vector<int> result;
+vector<int> result94;
 
-void dfs(TreeNode* root){
+void dfs94(TreeNode* root){
     if (root!= nullptr){
-        dfs(root->left);
-        result.emplace_back(root->val);
-        dfs(root->right);
+        dfs94(root->left);
+        result94.emplace_back(root->val);
+        dfs94(root->right);
     }
 }
 

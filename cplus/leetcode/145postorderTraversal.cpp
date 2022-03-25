@@ -22,10 +22,10 @@ struct TreeNode {
 
 vector<int> result;
 
-void dfs(TreeNode *root) {
+void dfs145(TreeNode *root) {
     if (root != nullptr) {
-        dfs(root->left);
-        dfs(root->right);
+        dfs145(root->left);
+        dfs145(root->right);
         result.emplace_back(root->val);
 
     }

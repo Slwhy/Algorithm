@@ -15,18 +15,18 @@ struct TreeNode {
   TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-TreeNode* dfs(TreeNode* node1, TreeNode* node2){
+TreeNode* dfs617(TreeNode* node1, TreeNode* node2){
     if (node1== nullptr) return node2;
     else if (node2 == nullptr) return node1;
     else{
 
         node1->val= node1->val+node2->val;
-        node1->left = dfs(node1->left,node2->left);
-        node1->right = dfs(node1->right,node2->right);
+        node1->left = dfs617(node1->left,node2->left);
+        node1->right = dfs617(node1->right,node2->right);
         return node1;
     }
 }
 
 TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
-    return dfs(root1,root2);
+    return dfs617(root1,root2);
 }

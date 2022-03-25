@@ -6,13 +6,13 @@
 
 using namespace std;
 
-vector<vector<int>> res;
+vector<vector<int>> res77;
 
 
 
 void combineCore2(vector<int> curr, int n, int k, int index) {
     // 以每个数选与不选，构造二叉树
-    if (curr.size() == k)res.emplace_back(curr);
+    if (curr.size() == k)res77.emplace_back(curr);
     else if (curr.size() + (n - index + 1) >= k) {
         curr.emplace_back(index);
         combineCore2(curr, n, k, index + 1);
@@ -22,7 +22,7 @@ void combineCore2(vector<int> curr, int n, int k, int index) {
 }
 
 void combineCore(vector<int> curr, int n, int k, int index) {
-    if (curr.size() == k)res.emplace_back(curr);
+    if (curr.size() == k)res77.emplace_back(curr);
         // 这个else if 对于一些肯定不满足的情况进行了剪枝
         //else if (curr.size() + (n - index + 1) >= k) {
     else {
@@ -38,5 +38,5 @@ void combineCore(vector<int> curr, int n, int k, int index) {
 vector<vector<int>> combine(int n, int k) {
     vector<int> tmp;
     combineCore(tmp, n, k, 1);
-    return res;
+    return res77;
 }

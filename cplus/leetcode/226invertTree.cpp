@@ -1,5 +1,5 @@
 //
-// Created by slwhy on 2022/3/22.
+// Created by slwhy on 2022/3/23.
 //
 #include "iostream"
 
@@ -18,19 +18,18 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-int res104 = 0;
-
-void dfs(TreeNode *node, int depth) {
+void dfs226(TreeNode *node) {
     if (node != nullptr) {
-        depth++;
-        dfs(node->left,depth);
-        dfs(node->right,depth);
-    } else {
-        res104 = res104 > depth ? res104 : depth;
+        dfs226(node->left);
+        dfs226(node->right);
+        TreeNode* tmp = node->left;
+        node->left = node->right;
+        node->right = tmp;
     }
+
 }
 
-int maxDepth(TreeNode *root) {
-    dfs(root,0);
-    return res104;
+TreeNode *invertTree(TreeNode *root) {
+    dfs226(root);
+    return root;
 }

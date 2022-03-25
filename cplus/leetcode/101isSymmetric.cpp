@@ -18,14 +18,15 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-bool dfs(TreeNode *leftNode, TreeNode *rightNode) {
+bool dfs101(TreeNode *leftNode, TreeNode *rightNode) {
     if (leftNode == nullptr && rightNode == nullptr) return true;
     else if (leftNode != nullptr && rightNode != nullptr) {
-        return leftNode->val == rightNode->val && dfs(leftNode->left, rightNode->right) &&
-               dfs(leftNode->right, rightNode->left);
+        return leftNode->val == rightNode->val && dfs101(leftNode->left, rightNode->right) &&
+               dfs101(leftNode->right, rightNode->left);
     } else return false;
 }
 
 bool isSymmetric(TreeNode *root) {
-    return dfs(root->left, root->right);
+    return dfs101(root->left, root->right);
 }
+
